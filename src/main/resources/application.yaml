@@ -3,23 +3,22 @@ spring:
         name: report-listener
     profiles:
         default: default
-cloud:
-    stream:
-        kafka:
-            binder:
-                brokers: localhost:9092
-        function:
-            binding:
-                consumerReport-out-0: # consumerReport-out -> consumerReport <- consumerReport-in
-                    destination: consumerReport
-data:
-    mongodb:
-        authentication-database: admin
-        host: localhost
-        port: 27017
-        username: sa
-        password: sa
-
+    cloud:
+        stream:
+            kafka:
+                binder:
+                    brokers: localhost:9092
+            function:
+                binding:
+                    consumerReport-in-0: # consumerReport-out -> consumerReport <- consumerReport-in
+                        destination: consumerReport
+    data:
+        mongodb:
+            authentication-database: admin
+            host: localhost
+            port: 27017
+            username: sa
+            password: sa
 server:
     port: 0
 eureka:
